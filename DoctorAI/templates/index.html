@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Care Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <script>
+
+      function addSymptom() {
+        const symptomInput = document.getElementById("symptoms");
+        const symptomSelect = document.getElementById("symptomSelect");
+        const selectedSymptom = symptomSelect.options[symptomSelect.selectedIndex].value;
+
+        if (selectedSymptom && !symptomInput.value.includes(selectedSymptom)) {
+          symptomInput.value += (symptomInput.value ? ", " : "") + selectedSymptom;
+        }
+
+        symptomSelect.selectedIndex = 0; 
+      }
+      function startSpeechRecognition() {
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US'; // Language set for speech recognition
+
+        recognition.onresult = function (event) {
+          const result = event.results[0][0].transcript;
+          document.getElementById('symptoms').value += (document.getElementById('symptoms').value ? ', ' : '') + result;
+        };
+
+        recognition.onend = function () {
+          console.log('Speech recognition ended.');
+        };
+
+        recognition.start();
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- Logo at the top-left corner -->
+        <div class="logo">
+          <img class="myimg" src="{{ url_for('static', filename='logoimg.png') }}" alt="">
+        </div>
+
+        <a class="navbar-brand" href="#">Health Center</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/developer">Developer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/blog">Blog</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main form of page -->
+    <h1 class="mt-4 my-4 text-center text-green">Health Care Center</h1>
+    <div class="container my-4 mt-4" style="color: white; border-radius: 15px; padding: 40px;">
+      <form action="/predict" method="post">
+        <div class="form-group">
+          <label for="symptoms">Select Symptoms:</label>
+          <input type="text" class="form-control" id="symptoms" name="symptoms" placeholder="Type symptoms such as itching, sleeping, aching etc">
+
+          <label for="symptomSelect">Choose a symptom:</label>
+          <select id="symptomSelect" name="symptomSelect" class="form-select">
+            <option value="">--Select a symptom--</option>
+            <option value="itching">Itching</option>
+            <option value="skin_rash">Skin Rash</option>
+            <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+            <option value="continuous_sneezing">Continuous Sneezing</option>
+            <option value="shivering">Shivering</option>
+            <option value="chills">Chills</option>
+            <option value="joint_pain">Joint Pain</option>
+            <option value="stomach_pain">Stomach Pain</option>
+            <option value="acidity">Acidity</option>
+            <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+            <option value="muscle_wasting">Muscle Wasting</option>
+            <option value="vomiting">Vomiting</option>
+            <option value="burning_micturition">Burning Micturition</option>
+            <option value="spotting_urination">Spotting Urination</option>
+            <option value="fatigue">Fatigue</option>
+            <option value="weight_gain">Weight Gain</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="cold_hands_and_feets">Cold Hands and Feet</option>
+            <option value="mood_swings">Mood Swings</option>
+            <option value="weight_loss">Weight Loss</option>
+            <option value="restlessness">Restlessness</option>
+            <option value="lethargy">Lethargy</option>
+            <option value="patches_in_throat">Patches in Throat</option>
+            <option value="irregular_sugar_level">Irregular Sugar Level</option>
+            <option value="cough">Cough</option>
+            <option value="high_fever">High Fever</option>
+            <option value="sunken_eyes">Sunken Eyes</option>
+            <option value="breathlessness">Breathlessness</option>
+            <option value="sweating">Sweating</option>
+            <option value="dehydration">Dehydration</option>
+            <option value="indigestion">Indigestion</option>
+            <option value="headache">Headache</option>
+            <option value="yellowish_skin">Yellowish Skin</option>
+            <option value="dark_urine">Dark Urine</option>
+            <option value="nausea">Nausea</option>
+            <option value="loss_of_appetite">Loss of Appetite</option>
+            <option value="pain_behind_the_eyes">Pain Behind the Eyes</option>
+            <option value="back_pain">Back Pain</option>
+            <option value="constipation">Constipation</option>
+            <option value="abdominal_pain">Abdominal Pain</option>
+            <option value="diarrhoea">Diarrhoea</option>
+            <option value="mild_fever">Mild Fever</option>
+            <option value="yellow_urine">Yellow Urine</option>
+            <option value="yellowing_of_eyes">Yellowing of Eyes</option>
+            <option value="acute_liver_failure">Acute Liver Failure</option>
+            <option value="fluid_overload">Fluid Overload</option>
+            <option value="swelling_of_stomach">Swelling of Stomach</option>
+            <option value="swelled_lymph_nodes">Swelled Lymph Nodes</option>
+            <option value="malaise">Malaise</option>
+            <option value="blurred_and_distorted_vision">Blurred and Distorted Vision</option>
+            <option value="phlegm">Phlegm</option>
+            <option value="throat_irritation">Throat Irritation</option>
+            <option value="redness_of_eyes">Redness of Eyes</option>
+            <option value="sinus_pressure">Sinus Pressure</option>
+            <option value="runny_nose">Runny Nose</option>
+            <option value="congestion">Congestion</option>
+            <option value="chest_pain">Chest Pain</option>
+            <option value="weakness_in_limbs">Weakness in Limbs</option>
+            <option value="fast_heart_rate">Fast Heart Rate</option>
+            <option value="pain_during_bowel_movements">Pain During Bowel Movements</option>
+            <option value="pain_in_anal_region">Pain in Anal Region</option>
+            <option value="bloody_stool">Bloody Stool</option>
+            <option value="irritation_in_anus">Irritation in Anus</option>
+            <option value="neck_pain">Neck Pain</option>
+            <option value="dizziness">Dizziness</option>
+            <option value="cramps">Cramps</option>
+            <option value="bruising">Bruising</option>
+            <option value="obesity">Obesity</option>
+            <option value="swollen_legs">Swollen Legs</option>
+            <option value="swollen_blood_vessels">Swollen Blood Vessels</option>
+            <option value="puffy_face_and_eyes">Puffy Face and Eyes</option>
+            <option value="enlarged_thyroid">Enlarged Thyroid</option>
+            <option value="brittle_nails">Brittle Nails</option>
+            <option value="swollen_extremeties">Swollen Extremities</option>
+            <option value="excessive_hunger">Excessive Hunger</option>
+            <option value="extra_marital_contacts">Extra Marital Contacts</option>
+            <option value="drying_and_tingling_lips">Drying and Tingling Lips</option>
+            <option value="slurred_speech">Slurred Speech</option>
+            <option value="knee_pain">Knee Pain</option>
+            <option value="hip_joint_pain">Hip Joint Pain</option>
+          </select>
+          <button type="button" class="btn btn-primary mt-2" onclick="addSymptom()">Add Symptom</button>
+          <!-- <button type="button" class="btn btn-secondary mt-2" id="startSpeechRecognition" onclick="startSpeechRecognition()">Speak Symptoms</button> -->
+        </div>
+        <br>
+
+        {% if message %}
+          <p>{{ message }}</p>
+        {% endif %}
+        <br>
+
+        <button type="submit" class="btn btn-success btn-lg" style="width: 100%; padding: 14px; margin-bottom: 5px;">Predict</button>
+      </form>
+    </div>
+
+    <div class="container my-4">
+      {% if predicted_disease %}
+        <h1 class="text-center my-4 mt-4">Our AI System Results</h1>
+        <div class="result-container">
+          <div id="results" class="mt-4 result_class">
+            <h3>Results:</h3>
+            <p><strong>Your Symptoms</strong>
+            {{user_symptoms}}
+            </p>
+            <p><strong>Disease:</strong> {{ predicted_disease }}</p>
+            <p><strong>Description:</strong> {{ dis_des }}</p>
+            <p><strong>Precautions:</strong>
+              <ul>
+                {% for precaution in my_precautions %}
+                  <li>{{ precaution }}</li>
+                {% endfor %}
+              </ul>
+            </p>
+            <p><strong>Medications:</strong>
+              <ul>
+                {% for medication in medications %}
+                  <li>{{ medication }}</li>
+                {% endfor %}
+              </ul>
+            </p>
+            <p><strong>Workouts:</strong>
+              <ul>
+                {% for w in workout %}
+                  <li>{{ w }}</li>
+                {% endfor %}
+              </ul>
+            </p>
+            <p><strong>Diets:</strong>
+              <ul>
+                {% for diet in my_diet %}
+                  <li>{{ diet }}</li>
+                {% endfor %}
+              </ul>
+            </p>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

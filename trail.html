@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Selector</title>
+    <script>
+        function addSymptom(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            const selectElement = document.getElementById('symptom');
+            const selectedSymptom = selectElement.value;
+            const inputElement = document.getElementById('symptomInput');
+            const currentSymptoms = inputElement.value.split(',').map(symptom => symptom.trim());
+
+            // Add selected symptom if it's not already in the input box
+            if (selectedSymptom && !currentSymptoms.includes(selectedSymptom)) {
+                currentSymptoms.push(selectedSymptom);
+                inputElement.value = currentSymptoms.join(', '); // Update input box with comma-separated values
+            }
+
+            // Reset the select box
+            selectElement.value = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>Select a Symptom</h1>
+    <form onsubmit="addSymptom(event)">
+        <label for="symptom">Choose a symptom:</label>
+        <select id="symptom" name="symptom">
+            <option value="">--Select a symptom--</option>
+            <option value="itching">Itching</option>
+            <option value="skin_rash">Skin Rash</option>
+            <option value="nodal_skin_eruptions">Nodal Skin Eruptions</option>
+            <option value="continuous_sneezing">Continuous Sneezing</option>
+            <option value="shivering">Shivering</option>
+            <option value="chills">Chills</option>
+            <option value="joint_pain">Joint Pain</option>
+            <option value="stomach_pain">Stomach Pain</option>
+            <option value="acidity">Acidity</option>
+            <option value="ulcers_on_tongue">Ulcers on Tongue</option>
+            <option value="muscle_wasting">Muscle Wasting</option>
+            <option value="vomiting">Vomiting</option>
+            <option value="burning_micturition">Burning Micturition</option>
+            <option value="spotting_urination">Spotting Urination</option>
+            <option value="fatigue">Fatigue</option>
+            <option value="weight_gain">Weight Gain</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="cold_hands_and_feets">Cold Hands and Feet</option>
+            <option value="mood_swings">Mood Swings</option>
+            <option value="weight_loss">Weight Loss</option>
+            <option value="restlessness">Restlessness</option>
+            <option value="lethargy">Lethargy</option>
+            <option value="patches_in_throat">Patches in Throat</option>
+            <option value="irregular_sugar_level">Irregular Sugar Level</option>
+            <option value="cough">Cough</option>
+            <option value="high_fever">High Fever</option>
+            <option value="sunken_eyes">Sunken Eyes</option>
+            <option value="breathlessness">Breathlessness</option>
+            <option value="sweating">Sweating</option>
+            <option value="dehydration">Dehydration</option>
+            <option value="indigestion">Indigestion</option>
+            <option value="headache">Headache</option>
+            <option value="yellowish_skin">Yellowish Skin</option>
+            <option value="dark_urine">Dark Urine</option>
+            <option value="nausea">Nausea</option>
+            <option value="loss_of_appetite">Loss of Appetite</option>
+            <option value="pain_behind_the_eyes">Pain Behind the Eyes</option>
+            <option value="back_pain">Back Pain</option>
+            <option value="constipation">Constipation</option>
+            <option value="abdominal_pain">Abdominal Pain</option>
+            <option value="diarrhoea">Diarrhoea</option>
+            <option value="mild_fever">Mild Fever</option>
+            <option value="yellow_urine">Yellow Urine</option>
+            <option value="yellowing_of_eyes">Yellowing of Eyes</option>
+            <option value="acute_liver_failure">Acute Liver Failure</option>
+            <option value="fluid_overload">Fluid Overload</option>
+            <option value="swelling_of_stomach">Swelling of Stomach</option>
+            <option value="swelled_lymph_nodes">Swelled Lymph Nodes</option>
+            <option value="malaise">Malaise</option>
+            <option value="blurred_and_distorted_vision">Blurred and Distorted Vision</option>
+            <option value="phlegm">Phlegm</option>
+            <option value="throat_irritation">Throat Irritation</option>
+            <option value="redness_of_eyes">Redness of Eyes</option>
+            <option value="sinus_pressure">Sinus Pressure</option>
+            <option value="runny_nose">Runny Nose</option>
+            <option value="congestion">Congestion</option>
+            <option value="chest_pain">Chest Pain</option>
+            <option value="weakness_in_limbs">Weakness in Limbs</option>
+            <option value="fast_heart_rate">Fast Heart Rate</option>
+            <option value="pain_during_bowel_movements">Pain During Bowel Movements</option>
+            <option value="pain_in_anal_region">Pain in Anal Region</option>
+            <option value="bloody_stool">Bloody Stool</option>
+            <option value="irritation_in_anus">Irritation in Anus</option>
+            <option value="neck_pain">Neck Pain</option>
+            <option value="dizziness">Dizziness</option>
+            <option value="cramps">Cramps</option>
+            <option value="bruising">Bruising</option>
+            <option value="obesity">Obesity</option>
+            <option value="swollen_legs">Swollen Legs</option>
+            <option value="swollen_blood_vessels">Swollen Blood Vessels</option>
+            <option value="puffy_face_and_eyes">Puffy Face and Eyes</option>
+            <option value="enlarged_thyroid">Enlarged Thyroid</option>
+            <option value="brittle_nails">Brittle Nails</option>
+            <option value="swollen_extremeties">Swollen Extremities</option>
+            <option value="excessive_hunger">Excessive Hunger</option>
+            <option value="extra_marital_contacts">Extra Marital Contacts</option>
+            <option value="drying_and_tingling_lips">Drying and Tingling Lips</option>
+            <option value="slurred_speech">Slurred Speech</option>
+            <option value="knee_pain">Knee Pain</option>
+            <option value="hip_joint_pain">Hip Joint Pain</option>
+            <option value="muscle_weakness">Muscle Weakness</option>
+            <option value="stiff_neck">Stiff Neck</option>
+            <option value="swelling_joints">Swelling Joints</option>
+            <option value="movement_stiffness">Movement Stiffness</option>
+            <option value="spinning_movements">Spinning Movements</option>
+            <option value="loss_of_balance">Loss of Balance</option>
+            <option value="unsteadiness">Unsteadiness</option>
+            <option value="weakness_of_one_body_side">Weakness of One Body Side</option>
+            <option value="loss_of_smell">Loss of Smell</option>
+            <option value="bladder_discomfort">Bladder Discomfort</option>
+            <option value="foul_smell_of_urine">Foul Smell of Urine</option>
+            <option value="continuous_feel_of_urine">Continuous Feel of Urine</option>
+            <option value="passage_of_gases">Passage of Gases</option>
+            <option value="internal_itching">Internal Itching</option>
+            <option value="toxic_look_(typhos)">Toxic Look (Typhos)</option>
+            <option value="depression">Depression</option>
+            <option value="irritability">Irritability</option>
+            <option value="muscle_pain">Muscle Pain</option>
+            <option value="altered_sensorium">Altered Sensorium</option>
+            <option value="red_spots_over_body">Red Spots Over Body</option>
+            <option value="belly_pain">Belly Pain</option>
+            <option value="abnormal_menstruation">Abnormal Menstruation</option>
+            <option value="dischromic_patches">Dischromic Patches</option>
+            <option value="watering_from_eyes">Watering from Eyes</option>
+            <option value="increased_appetite">Increased Appetite</option>
+            <option value="polyuria">Polyuria</option>
+            <option value="family_history">Family History</option>
+            <option value="mucoid_sputum">Mucoid Sputum</option>
+            <option value="rusty_sputum">Rusty Sputum</option>
+            <option value="lack_of_concentration">Lack of Concentration</option>
+            <option value="visual_disturbances">Visual Disturbances</option>
+            <option value="receiving_blood_transfusion">Receiving Blood Transfusion</option>
+            <option value="receiving_unsterile_injections">Receiving Unsterile Injections</option>
+            <option value="coma">Coma</option>
+            <option value="stomach_bleeding">Stomach Bleeding</option>
+            <option value="distention_of_abdomen">Distention of Abdomen</option>
+            <option value="history_of_alcohol_consumption">History of Alcohol Consumption</option>
+            <option value="fluid_overload_1">Fluid Overload</option>
+            <option value="blood_in_sputum">Blood in Sputum</option>
+            <option value="prominent_veins_on_calf">Prominent Veins on Calf</option>
+            <option value="palpitations">Palpitations</option>
+            <option value="painful_walking">Painful Walking</option>
+            <option value="pus_filled_pimples">Pus Filled Pimples</option>
+            <option value="blackheads">Blackheads</option>
+            <option value="scurring">Scurring</option>
+            <option value="skin_peeling">Skin Peeling</option>
+            <option value="silver_like_dusting">Silver-like Dusting</option>
+            <option value="small_dents_in_nails">Small Dents in Nails</option>
+            <option value="inflammatory_nails">Inflammatory Nails</option>
+            <option value="blister">Blister</option>
+            <option value="red_sore_around_nose">Red Sore Around Nose</option>
+            <option value="yellow_crust_ooze">Yellow Crust Ooze</option>
+        </select>
+        <input type="submit" value="Add">
+        <br><br>
+        <label for="symptomInput">Selected Symptoms:</label>
+        <input type="text" id="symptomInput" name="symptomInput" readonly>
+    </form>
+</body>
+</html>

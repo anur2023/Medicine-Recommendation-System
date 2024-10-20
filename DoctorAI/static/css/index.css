@@ -1,0 +1,145 @@
+.logo {
+    width: 50px;
+    height: 50px;
+    color: black;
+    margin-top: 0;
+    margin-left: 2px;
+}
+
+.myimg {
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+.result_class {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result_class:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.result_class h3 {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+.result_class p {
+    font-family: 'Verdana', sans-serif;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.result_class strong {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.result_class ul {
+    list-style-type: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.result_class li {
+    font-family: 'Courier New', monospace;
+    color: #444;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.result_class li:hover {
+    color: #007bff;
+}
+
+.result_class ul {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.container {
+    background: #e9f7fc;
+    color: #333;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    color: #007bff;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input.form-control {
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 10px;
+    transition: border-color 0.3s;
+}
+
+input.form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 20px;
+    padding: 14px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+#transcription {
+    border: 1px dashed #007bff;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+#transcription:hover {
+    background: rgba(255, 255, 255, 1);
+}
